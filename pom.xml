@@ -8,6 +8,19 @@
     <artifactId>flink.taxi.stream</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <properties>
+        <flink.version>1.9.0</flink.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-streaming-java_2.11</artifactId>
+            <version>${flink.version}</version>
+            <!--<scope>provided</scope>-->
+        </dependency>
+    </dependencies>
+
     <build>
         <plugins>
             <plugin>
