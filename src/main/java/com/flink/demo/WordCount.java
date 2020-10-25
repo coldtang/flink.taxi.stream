@@ -19,7 +19,7 @@ import org.apache.flink.util.Collector;
 *  author：tang
 *
 * */
-public class WorldCount {
+public class WordCount {
     public static void main(String[] args) throws Exception {
         ParameterTool parameterTool = ParameterTool.fromArgs(args);
         String ip;
@@ -47,10 +47,10 @@ public class WorldCount {
         env.setParallelism(2);
         // Data Source
         // 从socket读取数据
-        DataStreamSource<String> worldString = env.socketTextStream(ip, port);
+        DataStreamSource<String> wordString = env.socketTextStream(ip, port);
         // Data Process
         // 格式化
-        DataStream<Tuple2<String, Integer>> source = worldString.flatMap(new WordOneFlatMapFunction());
+        DataStream<Tuple2<String, Integer>> source = wordString.flatMap(new WordOneFlatMapFunction());
         // 分组
         KeyedStream<Tuple2<String, Integer>, Tuple> wordGroup = source.keyBy(0);
         //聚合计算
@@ -58,15 +58,15 @@ public class WorldCount {
         // Data Sink
         wordCounts.print();
         // 启动并执行流程序
-        env.execute("Streaming WorldCount");
+        env.execute("Streaming WordCount");
     }
 
     private static class WordOneFlatMapFunction implements FlatMapFunction<String, Tuple2<String, Integer>>{
         @Override
         public void flatMap(String line, Collector<Tuple2<String, Integer>> out) throws Exception {
-            String[] worlds = line.toLowerCase().split(" ");
-            for (String world : worlds) {
-                Tuple2<String, Integer> wordInfo = new Tuple2<>(world, 1);
+            String[] words = line.toLowerCase().split(" ");
+            for (String word : words) {
+                Tuple2<String, Integer> wordInfo = new Tuple2<>(word, 1);
                 // 输出
                 out.collect(wordInfo);
             }
