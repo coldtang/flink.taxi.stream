@@ -12,7 +12,7 @@ import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 
 /**
  * 过滤起始位置和终点位置都在纽约地理范围内的时间
- *
+ * 计算经纬度网格id
  * @author tang
  */
 public class RideCleansing implements DataFilePath {
