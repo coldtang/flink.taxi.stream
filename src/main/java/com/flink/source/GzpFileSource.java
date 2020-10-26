@@ -13,7 +13,7 @@ import java.util.zip.GZIPInputStream;
  * 读取gz数据模拟发送
  * @author tang
  */
-public class GzpFileSource implements SourceFunction {
+public class GzpFileSource implements SourceFunction<String> {
     // 文件路径
     private String filePath;
 
@@ -26,7 +26,7 @@ public class GzpFileSource implements SourceFunction {
     private BufferedReader reader;
 
     @Override
-    public void run(SourceContext sourceContext) throws Exception {
+    public void run(SourceContext<String> sourceContext) throws Exception {
         // 发送数据
         // 读取gz文件
         source = new GZIPInputStream(new FileInputStream(filePath));
