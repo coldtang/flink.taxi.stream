@@ -16,6 +16,10 @@ import org.apache.flink.util.Collector;
 
 import java.util.Properties;
 
+/**
+ * 统计单词数量
+ * @author：tang
+ */
 public class WordCountKafka {
     public static void main(String[] args) throws Exception {
         // 初始化流执行环境
@@ -24,12 +28,12 @@ public class WordCountKafka {
         env.setParallelism(2);
         // Data Source
         // 从kafka读取数据
-        Properties properties=new Properties();
+        Properties properties = new Properties();
         properties.setProperty("bootstrap.servers", "master:9092");
         properties.setProperty("group.id", "flink-test");
-        FlinkKafkaConsumer<String> wordKafaString=
-                new FlinkKafkaConsumer<String>("flink-input",new SimpleStringSchema(),properties);
-        DataStreamSource<String> wordString = env.addSource(wordKafaString,"kafkaSource");
+        FlinkKafkaConsumer<String> wordKafaString =
+                new FlinkKafkaConsumer<String>("flink-input", new SimpleStringSchema(), properties);
+        DataStreamSource<String> wordString = env.addSource(wordKafaString, "kafkaSource");
         // Data Process
         // 格式化
         DataStream<Tuple2<String, Integer>> source = wordString.flatMap(new WordOneFlatMapFunction());
@@ -38,8 +42,8 @@ public class WordCountKafka {
                 source.keyBy(0).sum(1);
 
         // Data Sink
-        FlinkKafkaProducer<String> producer=
-                new FlinkKafkaProducer<String>("master:9092","flink-output",new SimpleStringSchema());
+        FlinkKafkaProducer<String> producer =
+                new FlinkKafkaProducer<String>("master:9092", "flink-output", new SimpleStringSchema());
         wordCounts.map(new MapFunction<Tuple2<String, Integer>, String>() {
             @Override
             public String map(Tuple2<String, Integer> stringIntegerTuple2) throws Exception {

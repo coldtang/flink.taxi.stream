@@ -14,10 +14,8 @@ import org.apache.flink.streaming.api.graph.StreamGraph;
 import org.apache.flink.util.Collector;
 
 /**
-*
 *  统计单词数量
-*  author：tang
-*
+*  @author：tang
 * */
 public class WordCount {
     public static void main(String[] args) throws Exception {

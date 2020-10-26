@@ -9,6 +9,7 @@ import java.util.Locale;
 
 /**
  * TaxiRide 表示出租车启动或者停止的时候发送的事件
+ * @author tang
  */
 public class TaxiRide implements Serializable {
 
@@ -55,7 +56,7 @@ public class TaxiRide implements Serializable {
      * 出租车启动的时候所在位置的纬度
      * */
 	private float startLat;
- 
+
     /*
      * 出租车停止的时候所在位置的经度
      * */

@@ -9,6 +9,7 @@ import java.util.Locale;
 
 /**
  * TaxiFare 表示一个出租车收费的事件.
+ * @author tang
  */
 public class TaxiFare implements Serializable {
 	private static transient DateTimeFormatter timeFormatter =
