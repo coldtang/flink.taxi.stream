@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="61f2618b-32a9-4742-800e-9ede296ffa40" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/flink/state/StatefulAPI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/flink/state/function/CountWindowAverageWithValueState.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/flink/state/StatefulAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/flink/state/StatefulAPI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/flink/state/function/CountWindowAverageWithListState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/flink/state/function/CountWindowAverageWithListState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/flink/state/function/CountWindowAverageWithValueState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/flink/state/function/CountWindowAverageWithValueState.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -22,17 +23,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="29">
+            <state relative-caret-position="625">
               <caret line="25" column="4" selection-start-line="25" selection-end-line="25" selection-end-column="42" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/flink/state/StatefulAPI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="600">
-              <caret line="24" selection-start-line="24" selection-end-line="24" />
+            <state relative-caret-position="204">
+              <caret line="25" column="12" lean-forward="true" selection-start-line="25" selection-start-column="12" selection-end-line="25" selection-end-column="12" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -40,11 +41,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/flink/state/function/CountWindowAverageWithListState.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="278">
-              <caret line="42" lean-forward="true" selection-start-line="42" selection-end-line="42" />
+            <state relative-caret-position="425">
+              <caret line="22" column="44" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="44" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -55,8 +56,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/flink/state/function/CountWindowAverageWithValueState.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="128">
-              <caret line="15" column="3" selection-start-line="15" selection-start-column="3" selection-end-line="15" selection-end-column="3" />
+            <state relative-caret-position="179">
+              <caret line="15" selection-start-line="15" selection-end-line="15" selection-end-column="15" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -67,7 +68,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/flink/basic/RideCount.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="160">
+            <state relative-caret-position="500">
               <caret line="29" column="54" selection-start-line="29" selection-start-column="49" selection-end-line="29" selection-end-column="54" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -79,7 +80,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/flink/util/GeoUtils.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="554">
+            <state relative-caret-position="1850">
               <caret line="74" column="50" selection-start-line="74" selection-start-column="34" selection-end-line="74" selection-end-column="50" />
             </state>
           </provider>
@@ -94,6 +95,11 @@
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>ValueState</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -118,8 +124,8 @@
         <option value="$PROJECT_DIR$/src/main/java/com/flink/basic/RideCount.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/flink/basic/CellDriverDuration.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/flink/state/function/CountWindowAverageWithValueState.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/flink/state/StatefulAPI.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/flink/state/function/CountWindowAverageWithListState.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/flink/state/StatefulAPI.java" />
       </list>
     </option>
   </component>
@@ -150,6 +156,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -217,13 +225,11 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/pom.xml" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/FlinkStreaming核心编程课程资料/flink-course/pom.xml" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -339,7 +345,7 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21715818" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21983914" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -348,7 +354,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32991204" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.19794722" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.31671554" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -413,13 +419,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/flink/util/GeoUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="554">
-          <caret line="74" column="50" selection-start-line="74" selection-start-column="34" selection-end-line="74" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/flink/source/GzpFileSource.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-89">
@@ -466,16 +465,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/flink/basic/RideCount.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="29" column="54" selection-start-line="29" selection-start-column="49" selection-end-line="29" selection-end-column="54" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/flink/basic/RideEnrichingWithFlatMap.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="247">
@@ -511,25 +500,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="29">
+        <state relative-caret-position="625">
           <caret line="25" column="4" selection-start-line="25" selection-end-line="25" selection-end-column="42" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/flink/state/StatefulAPI.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/flink/basic/RideCount.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="24" selection-start-line="24" selection-end-line="24" />
+        <state relative-caret-position="500">
+          <caret line="29" column="54" selection-start-line="29" selection-start-column="49" selection-end-line="29" selection-end-column="54" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/flink/util/GeoUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1850">
+          <caret line="74" column="50" selection-start-line="74" selection-start-column="34" selection-end-line="74" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/flink/state/function/CountWindowAverageWithValueState.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="15" column="3" selection-start-line="15" selection-start-column="3" selection-end-line="15" selection-end-column="3" />
+        <state relative-caret-position="179">
+          <caret line="15" selection-start-line="15" selection-end-line="15" selection-end-column="15" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -538,8 +534,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/flink/state/function/CountWindowAverageWithListState.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="278">
-          <caret line="42" lean-forward="true" selection-start-line="42" selection-end-line="42" />
+        <state relative-caret-position="425">
+          <caret line="22" column="44" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="44" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/flink/state/StatefulAPI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="25" column="12" lean-forward="true" selection-start-line="25" selection-start-column="12" selection-end-line="25" selection-end-column="12" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

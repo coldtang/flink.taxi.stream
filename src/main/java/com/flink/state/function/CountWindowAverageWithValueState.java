@@ -13,6 +13,7 @@ import org.apache.flink.util.Collector;
  * value() 获取状态值
  * update() 更新状态值
  * clear() 清除状态
+ * @author tang
  */
 public class CountWindowAverageWithValueState
         extends RichFlatMapFunction<Tuple2<Long, Long>, Tuple2<Long, Double>> {

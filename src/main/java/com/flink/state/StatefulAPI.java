@@ -1,5 +1,6 @@
 package com.flink.state;
 
+import com.flink.state.function.CountWindowAverageWithListState;
 import com.flink.state.function.CountWindowAverageWithValueState;
 import org.apache.flink.api.java.tuple.Tuple2;
 import org.apache.flink.streaming.api.datastream.DataStreamSource;
@@ -7,8 +8,8 @@ import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 
 /**
  * 需求：当接收到的相同 key 的元素个数等于 3 个或者超过 3 个的时候
- *  就计算这些元素的 value 的平均值。
- *  计算 keyed stream 中每 3 个元素的 value 的平均值
+ * 就计算这些元素的 value 的平均值。
+ * 计算 keyed stream 中每 3 个元素的 value 的平均值
  */
 public class StatefulAPI {
     public static void main(String[] args) throws Exception {
@@ -22,7 +23,10 @@ public class StatefulAPI {
                 .keyBy(0)
                 .flatMap(new CountWindowAverageWithValueState())
                 .print();*/
-
+/*        dataStreamSource
+                .keyBy(0)
+                .flatMap(new CountWindowAverageWithListState())
+                .print();*/
 
         env.execute("TestStatefulApi");
     }
