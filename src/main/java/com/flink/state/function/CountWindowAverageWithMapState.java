@@ -1,8 +1,11 @@
 package com.flink.state.function;
 
+import akka.dispatch.Foreach;
 import org.apache.flink.api.common.functions.RichFlatMapFunction;
 import org.apache.flink.api.common.state.ListState;
 import org.apache.flink.api.common.state.ListStateDescriptor;
+import org.apache.flink.api.common.state.MapState;
+import org.apache.flink.api.common.state.MapStateDescriptor;
 import org.apache.flink.api.common.typeinfo.Types;
 import org.apache.flink.api.java.tuple.Tuple2;
 import org.apache.flink.configuration.Configuration;
@@ -11,60 +14,52 @@ import org.apache.flink.util.Collector;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.UUID;
 
 /**
- * ListState<T> ：这个状态为每一个 key 保存集合的值
- * get() 获取状态值
- * add() / addAll() 更新状态值，将数据放到状态中
- * clear() 清除状态
+ *  MapState<K, V> ：这个状态为每一个 key 保存一个 Map 集合
+ *  put() 将对应的 key 的键值对放到状态中
+ *  values() 拿到 MapState 中所有的 value
+ *  clear() 清除状态
  * @author tang
  */
-public class CountWindowAverageWithListState
+public class CountWindowAverageWithMapState
         extends RichFlatMapFunction<Tuple2<Long, Long>, Tuple2<Long, Double>> {
 
     /**
      * managed keyed state
-     * ListState 保存的是对应的一个 key 出现的所有值
+     * MapState ：key 是一个唯一的值，value 是接收到的相同的 key 对应的 value 的值
      */
-    private ListState<Tuple2<Long, Long>> elementsByKey;
+    private MapState<String,Long> mapState;
 
     @Override
     public void open(Configuration parameters) throws Exception {
         //注册状态
-        ListStateDescriptor<Tuple2<Long, Long>> descriptor =
-                new ListStateDescriptor<Tuple2<Long, Long>>(
+        MapStateDescriptor<String,Long> descriptor =
+                new MapStateDescriptor<String, Long>(
                         "average",  // 状态的名字
-                        Types.TUPLE(Types.LONG, Types.LONG)); // 状态存储的数据类型
-        elementsByKey = getRuntimeContext().getListState(descriptor);
+                        String.class,Long.class); // 状态存储的数据类型
+        mapState = getRuntimeContext().getMapState(descriptor);
     }
 
     @Override
     public void flatMap(Tuple2<Long, Long> element, Collector<Tuple2<Long, Double>> out)
             throws Exception {
-        // 拿到当前的 key 的状态值
-        Iterable<Tuple2<Long, Long>> currentState = elementsByKey.get();
-
-        // 如果状态值还没有初始化，则初始化
-        if (currentState == null) {
-            elementsByKey.addAll(Collections.emptyList());
-        }
-
-        // 更新状态
-        elementsByKey.add(element);
+        mapState.put(UUID.randomUUID().toString(),element.f1);
 
         // 判断，如果当前的 key 出现了 3 次，则需要计算平均值，并且输出
-        List<Tuple2<Long, Long>> allelement = Lists.newArrayList(elementsByKey.get());
+        List<Long> allelement = Lists.newArrayList(mapState.values());
         if (allelement.size() >= 3) {
             int count = 0;
             long sum = 0;
-            for (Tuple2<Long, Long> ele : allelement) {
+            for (Long value : allelement) {
                 count++;
-                sum += ele.f1;
+                sum += value;
             }
             double avg = (double) sum / count;
             out.collect(Tuple2.of(element.f0, avg));
             //  清空状态值
-            elementsByKey.clear();
+            mapState.clear();
         }
     }
 }

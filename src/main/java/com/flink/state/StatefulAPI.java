@@ -1,6 +1,7 @@
 package com.flink.state;
 
 import com.flink.state.function.CountWindowAverageWithListState;
+import com.flink.state.function.CountWindowAverageWithMapState;
 import com.flink.state.function.CountWindowAverageWithValueState;
 import org.apache.flink.api.java.tuple.Tuple2;
 import org.apache.flink.streaming.api.datastream.DataStreamSource;
@@ -23,10 +24,17 @@ public class StatefulAPI {
                 .keyBy(0)
                 .flatMap(new CountWindowAverageWithValueState())
                 .print();*/
+
 /*        dataStreamSource
                 .keyBy(0)
                 .flatMap(new CountWindowAverageWithListState())
                 .print();*/
+
+        dataStreamSource
+                .keyBy(0)
+                .flatMap(new CountWindowAverageWithMapState())
+                .print();
+
 
         env.execute("TestStatefulApi");
     }
