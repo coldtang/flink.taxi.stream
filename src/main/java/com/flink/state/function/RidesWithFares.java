@@ -8,6 +8,9 @@ import org.apache.flink.api.common.state.ValueState;
 import org.apache.flink.api.common.state.ValueStateDescriptor;
 import org.apache.flink.api.java.tuple.Tuple2;
 import org.apache.flink.configuration.Configuration;
+import org.apache.flink.contrib.streaming.state.RocksDBStateBackend;
+import org.apache.flink.runtime.state.filesystem.FsStateBackend;
+import org.apache.flink.runtime.state.memory.MemoryStateBackend;
 import org.apache.flink.streaming.api.datastream.DataStream;
 import org.apache.flink.streaming.api.datastream.KeyedStream;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
@@ -25,6 +28,14 @@ public class RidesWithFares implements DataFilePath {
     public static void main(String[] args) throws Exception {
         StreamExecutionEnvironment env =
                 StreamExecutionEnvironment.getExecutionEnvironment();
+
+        // 设置 三种 StateBackend
+        // 默认的话是 5 M
+        MemoryStateBackend memoryStateBackend = new MemoryStateBackend(100 * 1024 * 1024);
+        FsStateBackend fsStateBackend = new FsStateBackend("hdfs://master:9001/checkpoint-path/");
+        RocksDBStateBackend rocksDBStateBackend = new RocksDBStateBackend("hdfs://master:9001/checkpoint-path/");
+
+        env.setStateBackend(rocksDBStateBackend);
 
         //读取 TaxiRide 数据
         KeyedStream<TaxiRide, Long> rides = env.addSource(new GzpFileSource(TAXI_RIDE_PATH))
