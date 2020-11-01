@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="61f2618b-32a9-4742-800e-9ede296ffa40" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/flink/state/function/RidesWithFares.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/flink/state/function/RidesWithFares.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/flink/window/TimeWindowWordCount.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -20,7 +21,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/flink/state/StatefulAPI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="788">
+            <state relative-caret-position="329">
               <caret line="42" column="50" selection-start-line="42" selection-start-column="29" selection-end-line="42" selection-end-column="50" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -38,18 +39,6 @@
                 <element signature="imports" expanded="true" />
                 <element signature="e#441#442#0" expanded="true" />
                 <element signature="e#477#478#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/flink/state/function/RidesWithFares.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="215">
-              <caret line="51" column="47" selection-start-line="51" selection-start-column="29" selection-end-line="51" selection-end-column="47" />
-              <folding>
-                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -88,8 +77,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/flink/demo/WordCount.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="414">
-              <caret line="64" column="33" selection-start-line="64" selection-start-column="29" selection-end-line="64" selection-end-column="33" />
+            <state relative-caret-position="289">
+              <caret line="14" lean-forward="true" selection-end-line="73" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -98,6 +87,18 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/flink/window/TimeWindowWordCount.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="79">
+              <caret line="59" column="63" selection-start-line="59" selection-start-column="63" selection-end-line="59" selection-end-column="63" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/flink/demo/WordCountKafka.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="42">
@@ -180,6 +181,7 @@
         <option value="$PROJECT_DIR$/src/main/java/com/flink/state/function/CustomSink.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/flink/state/function/RidesWithFares.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/flink/window/TimeWindowWordCount.java" />
       </list>
     </option>
   </component>
@@ -263,17 +265,7 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="flink" type="462c0819:PsiDirectoryNode" />
-              <item name="state" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="flinktaxistream" type="b2602c69:ProjectViewProjectNode" />
-              <item name="flink.taxi.stream" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="flink" type="462c0819:PsiDirectoryNode" />
-              <item name="state" type="462c0819:PsiDirectoryNode" />
-              <item name="function" type="462c0819:PsiDirectoryNode" />
+              <item name="demo" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="flinktaxistream" type="b2602c69:ProjectViewProjectNode" />
@@ -283,6 +275,15 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="flink" type="462c0819:PsiDirectoryNode" />
               <item name="util" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="flinktaxistream" type="b2602c69:ProjectViewProjectNode" />
+              <item name="flink.taxi.stream" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="flink" type="462c0819:PsiDirectoryNode" />
+              <item name="window" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -315,7 +316,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.RidesWithFares">
+  <component name="RunManager" selected="Application.TimeWindowWordCount">
     <configuration name="CellDriverDuration" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.flink.basic.CellDriverDuration" />
       <module name="flink.taxi.stream" />
@@ -331,19 +332,6 @@
     </configuration>
     <configuration name="RideCount" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.flink.basic.RideCount" />
-      <module name="flink.taxi.stream" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.flink.basic.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="RideEnrichingWithFlatMap" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.flink.basic.RideEnrichingWithFlatMap" />
       <module name="flink.taxi.stream" />
       <extension name="coverage">
         <pattern>
@@ -381,13 +369,34 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TimeWindowWordCount" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.flink.window.TimeWindowWordCount" />
+      <module name="flink.taxi.stream" />
+      <option name="PROGRAM_PARAMETERS" value="--ip localhost --port 5001" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.flink.window.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.CellDriverDuration" />
+      <item itemvalue="Application.RideCount" />
+      <item itemvalue="Application.RidesWithFares" />
+      <item itemvalue="Application.StatefulAPI" />
+      <item itemvalue="Application.TimeWindowWordCount" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.TimeWindowWordCount" />
         <item itemvalue="Application.RidesWithFares" />
         <item itemvalue="Application.StatefulAPI" />
         <item itemvalue="Application.CellDriverDuration" />
         <item itemvalue="Application.RideCount" />
-        <item itemvalue="Application.RideEnrichingWithFlatMap" />
       </list>
     </recent_temporary>
   </component>
@@ -406,6 +415,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21983914" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -637,16 +647,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/flink/state/StatefulAPI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="788">
-          <caret line="42" column="50" selection-start-line="42" selection-start-column="29" selection-end-line="42" selection-end-column="50" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/flink/state/function/SumWithReducingState.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-25">
@@ -671,20 +671,40 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/flink/demo/WordCount.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/flink/demo/WordCountKafka.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="64" column="33" selection-start-line="64" selection-start-column="29" selection-end-line="64" selection-end-column="33" />
+        <state relative-caret-position="42">
+          <caret line="38" column="71" selection-start-line="38" selection-start-column="64" selection-end-line="38" selection-end-column="71" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/flink/demo/WordCountKafka.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/flink/state/StatefulAPI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="38" column="71" selection-start-line="38" selection-start-column="64" selection-end-line="38" selection-end-column="71" />
+        <state relative-caret-position="329">
+          <caret line="42" column="50" selection-start-line="42" selection-start-column="29" selection-end-line="42" selection-end-column="50" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/flink/demo/WordCount.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="14" lean-forward="true" selection-end-line="73" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/flink/window/TimeWindowWordCount.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="79">
+          <caret line="59" column="63" selection-start-line="59" selection-start-column="63" selection-end-line="59" selection-end-column="63" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
