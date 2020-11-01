@@ -31,8 +31,8 @@ public class RidesWithFares implements DataFilePath {
 
         // 设置 三种 StateBackend
         // 默认的话是 5 M
-        MemoryStateBackend memoryStateBackend = new MemoryStateBackend(100 * 1024 * 1024);
-        FsStateBackend fsStateBackend = new FsStateBackend("hdfs://master:9001/checkpoint-path/");
+        // MemoryStateBackend memoryStateBackend = new MemoryStateBackend(100 * 1024 * 1024);
+        // FsStateBackend fsStateBackend = new FsStateBackend("hdfs://master:9001/checkpoint-path/");
         RocksDBStateBackend rocksDBStateBackend = new RocksDBStateBackend("hdfs://master:9001/checkpoint-path/");
 
         env.setStateBackend(rocksDBStateBackend);
