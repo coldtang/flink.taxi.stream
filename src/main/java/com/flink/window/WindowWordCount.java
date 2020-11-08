@@ -54,7 +54,7 @@ public class WindowWordCount {
 
         // Data Source
         // 从socket中读取数据
-        DataStreamSource<String> dataStreamSource = env.socketTextStream(ip,port);
+        DataStreamSource<String> dataStreamSource = env.socketTextStream(ip, port);
 
         // Data Process
         // 对每一行按照空格切割，得到所有单词，并且可以对每个单词先计数 1
@@ -80,8 +80,12 @@ public class WindowWordCount {
         //.timeWindow(Time.seconds(3));
 
         WindowedStream<Tuple2<String, Integer>, Tuple, GlobalWindow> keyedWindow = wordGroup
-                .window(GlobalWindows.create())
-                .trigger(CountTrigger.of(3));
+                // global window 默认不会触发计算
+                // global window + trigger 累加数据
+                // .window(GlobalWindows.create())
+                // .trigger(CountTrigger.of(3));
+                // 不会累加数据
+                .countWindow(3);
 
         DataStream<Tuple2<String, Integer>> wordCounts = keyedWindow.sum(1);
 
