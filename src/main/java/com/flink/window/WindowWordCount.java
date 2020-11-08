@@ -8,7 +8,10 @@ import org.apache.flink.configuration.Configuration;
 import org.apache.flink.streaming.api.TimeCharacteristic;
 import org.apache.flink.streaming.api.datastream.*;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
+import org.apache.flink.streaming.api.windowing.assigners.GlobalWindows;
+import org.apache.flink.streaming.api.windowing.assigners.SlidingProcessingTimeWindows;
 import org.apache.flink.streaming.api.windowing.time.Time;
+import org.apache.flink.streaming.api.windowing.triggers.CountTrigger;
 import org.apache.flink.streaming.api.windowing.windows.GlobalWindow;
 import org.apache.flink.streaming.api.windowing.windows.TimeWindow;
 
@@ -47,7 +50,7 @@ public class WindowWordCount {
         // 设置每个 operator 的并行度（全局范围）
         env.setParallelism(2);
 
-        env.setStreamTimeCharacteristic(TimeCharacteristic.EventTime);
+        env.setStreamTimeCharacteristic(TimeCharacteristic.ProcessingTime);
 
         // Data Source
         // 从socket中读取数据
@@ -60,8 +63,8 @@ public class WindowWordCount {
                 dataStreamSource.flatMap(new WordCount.WordOneFlatMapFunction());
         // non keyed window ：不能设置并行度的
         // 每隔 3 秒钟计算所有单词的个数
-        AllWindowedStream<Tuple2<String, Integer>, TimeWindow> nonKeyedWindow =
-                wordOnes.timeWindowAll(Time.seconds(3));
+/*        AllWindowedStream<Tuple2<String, Integer>, TimeWindow> nonKeyedWindow =
+                wordOnes.timeWindowAll(Time.seconds(3));*/
 
         // 按照单词进行分组, 聚合计算每个单词出现的次数
         // keyed stream
@@ -69,8 +72,16 @@ public class WindowWordCount {
                 .keyBy(0);
         // keyed window ；可以设置并行度
         // 每隔 3 秒钟计算每个单词出现的次数
-        WindowedStream<Tuple2<String, Integer>, Tuple, TimeWindow> keyedWindow = wordGroup
-                .timeWindow(Time.seconds(3));
+//        WindowedStream<Tuple2<String, Integer>, Tuple, TimeWindow> keyedWindow = wordGroup
+//        .window(SlidingProcessingTimeWindows.of(Time.hours(1), Time.minutes(30), Time.minutes(15)));
+        // Tumbling Window : 窗口的大小是固定的
+        // 每个小时的 15 分钟开始，到下一个小时的 15 分钟结束
+        //.window(TumblingProcessingTimeWindows.of(Time.hours(1), Time.minutes(15)));
+        //.timeWindow(Time.seconds(3));
+
+        WindowedStream<Tuple2<String, Integer>, Tuple, GlobalWindow> keyedWindow = wordGroup
+                .window(GlobalWindows.create())
+                .trigger(CountTrigger.of(3));
 
         DataStream<Tuple2<String, Integer>> wordCounts = keyedWindow.sum(1);
 

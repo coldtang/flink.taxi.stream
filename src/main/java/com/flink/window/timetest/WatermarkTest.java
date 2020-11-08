@@ -82,6 +82,9 @@ public class WatermarkTest {
         env.execute("WatermarkTest");
     }
 
+    /**
+     * 萃取enventTime
+     */
     private static class EventTimeExtractor2
             implements AssignerWithPunctuatedWatermarks<Tuple2<String, Long>> {
 
@@ -106,6 +109,9 @@ public class WatermarkTest {
         }
     }
 
+    /**
+     * 萃取enventTime
+     */
     private static class EventTimeExtractor
             implements AssignerWithPeriodicWatermarks<Tuple2<String, Long>> {
         FastDateFormat dateFormat = FastDateFormat.getInstance("HH:mm:ss");
