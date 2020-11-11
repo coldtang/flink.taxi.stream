@@ -4,6 +4,7 @@ import com.flink.DataFilePath;
 import com.flink.datatypes.TaxiFare;
 import com.flink.source.GzpFileSource;
 import org.apache.flink.api.common.functions.MapFunction;
+import org.apache.flink.api.common.functions.ReduceFunction;
 import org.apache.flink.api.java.tuple.Tuple2;
 import org.apache.flink.configuration.Configuration;
 import org.apache.flink.streaming.api.datastream.DataStream;
@@ -32,17 +33,23 @@ public class HourlyTips implements DataFilePath {
                     }
                 });
         // 计算出每个小时每个司机总共赚了多少钱
-        DataStream<Tuple2<Long, Float>> tips = source.keyBy(fare -> fare.f0).timeWindow(Time.hours(1))
-                .process(new ProcessWindowFunction<Tuple2<Long, Float>, Tuple2<Long, Float>, Long, TimeWindow>() {
+        // 增量计算
+        DataStream<Tuple2<Long, Float>> tips = source.keyBy(fare -> fare.f0)
+                .timeWindow(Time.hours(1))
+                .reduce(new ReduceFunction<Tuple2<Long, Float>>() {
+                    @Override
+                    public Tuple2<Long, Float> reduce(Tuple2<Long, Float> partialResult,
+                                                      Tuple2<Long, Float> element) throws Exception {
+                        return Tuple2.of(partialResult.f0, partialResult.f1 + element.f1);
+                    }
+                }, new ProcessWindowFunction<Tuple2<Long, Float>, Tuple2<Long, Float>, Long, TimeWindow>() {
                     @Override
                     public void process(Long key,
                                         Context context,
                                         Iterable<Tuple2<Long, Float>> elements,
                                         Collector<Tuple2<Long, Float>> out) throws Exception {
-                        float sum = 0F;
-                        for (Tuple2<Long, Float> fare : elements) {
-                            sum += fare.f1;
-                        }
+                        // 拿到每个司机赚到的钱
+                        float sum =elements.iterator().next().f1;
                         out.collect(Tuple2.of(key, sum));
                     }
                 });
