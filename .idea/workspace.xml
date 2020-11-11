@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="61f2618b-32a9-4742-800e-9ede296ffa40" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/flink/project/HourlyTips.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/flink/project/HourlyTips.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/flink/project/CarEventSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/flink/project/CarEventSort.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -17,25 +18,32 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/flink/project/HourlyTips.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/flink/window/timetest/WatermarkTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="250">
-              <caret line="25" column="42" selection-start-line="25" selection-start-column="42" selection-end-line="25" selection-end-column="42" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#2122#2626#0" expanded="true" />
-                <element signature="e#2625#2626#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="-124">
+              <caret line="57" column="47" selection-start-line="57" selection-start-column="43" selection-end-line="57" selection-end-column="47" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/flink/state/StatefulAPI.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="228">
+              <caret line="22" column="61" selection-start-line="22" selection-start-column="29" selection-end-line="22" selection-end-column="61" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/flink/project/CarEventSort.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="15" column="41" selection-start-line="15" selection-start-column="41" selection-end-line="15" selection-end-column="41" />
+            <state relative-caret-position="215">
+              <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -44,10 +52,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/flink/datatypes/ConnectedCarEvent.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/flink/project/function/EventSortFunction.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2650">
-              <caret line="124" column="42" lean-forward="true" selection-start-line="124" selection-start-column="42" selection-end-line="124" selection-end-column="42" />
+            <state relative-caret-position="-1171">
+              <caret line="20" column="30" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="30" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -56,10 +64,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/flink/state/function/RidesWithFares.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/flink/project/ConnectedCarAssigner.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="800">
-              <caret line="49" column="13" selection-start-line="49" selection-start-column="13" selection-end-line="49" selection-end-column="13" />
+            <state relative-caret-position="204">
+              <caret line="21" column="21" lean-forward="true" selection-start-line="21" selection-start-column="21" selection-end-line="21" selection-end-column="21" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -81,6 +89,9 @@
     <findStrings>
       <find>ValueState</find>
       <find>outputTag</find>
+      <find>getTimestamp</find>
+      <find>ValueStateDescriptor</find>
+      <find>EventTimeExtractor</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -128,8 +139,10 @@
         <option value="$PROJECT_DIR$/src/main/java/com/flink/window/WindowWordCount.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/flink/datatypes/TaxiFare.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/flink/datatypes/ConnectedCarEvent.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/flink/project/CarEventSort.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/flink/project/HourlyTips.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/flink/project/ConnectedCarAssigner.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/flink/project/function/EventSortFunction.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/flink/project/CarEventSort.java" />
       </list>
     </option>
   </component>
@@ -177,18 +190,6 @@
             <path>
               <item name="flinktaxistream" type="b2602c69:ProjectViewProjectNode" />
               <item name="flink.taxi.stream" type="462c0819:PsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
-              <item name="car" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="flinktaxistream" type="b2602c69:ProjectViewProjectNode" />
-              <item name="flink.taxi.stream" type="462c0819:PsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
-              <item name="taxi" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="flinktaxistream" type="b2602c69:ProjectViewProjectNode" />
-              <item name="flink.taxi.stream" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -219,7 +220,7 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="flink" type="462c0819:PsiDirectoryNode" />
-              <item name="datatypes" type="462c0819:PsiDirectoryNode" />
+              <item name="source" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="flinktaxistream" type="b2602c69:ProjectViewProjectNode" />
@@ -228,7 +229,45 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="flink" type="462c0819:PsiDirectoryNode" />
-              <item name="project" type="462c0819:PsiDirectoryNode" />
+              <item name="state" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="flinktaxistream" type="b2602c69:ProjectViewProjectNode" />
+              <item name="flink.taxi.stream" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="flink" type="462c0819:PsiDirectoryNode" />
+              <item name="state" type="462c0819:PsiDirectoryNode" />
+              <item name="function" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="flinktaxistream" type="b2602c69:ProjectViewProjectNode" />
+              <item name="flink.taxi.stream" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="flink" type="462c0819:PsiDirectoryNode" />
+              <item name="util" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="flinktaxistream" type="b2602c69:ProjectViewProjectNode" />
+              <item name="flink.taxi.stream" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="flink" type="462c0819:PsiDirectoryNode" />
+              <item name="window" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="flinktaxistream" type="b2602c69:ProjectViewProjectNode" />
+              <item name="flink.taxi.stream" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="flink" type="462c0819:PsiDirectoryNode" />
+              <item name="window" type="462c0819:PsiDirectoryNode" />
+              <item name="timetest" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -262,13 +301,13 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.WindowWordCount">
-    <configuration name="RidesWithFares" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.flink.state.function.RidesWithFares" />
+  <component name="RunManager" selected="Application.CarEventSort">
+    <configuration name="CarEventSort" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.flink.project.CarEventSort" />
       <module name="flink.taxi.stream" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.flink.state.function.*" />
+          <option name="PATTERN" value="com.flink.project.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -276,12 +315,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="StatefulAPI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.flink.state.StatefulAPI" />
+    <configuration name="RidesWithFares" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.flink.state.function.RidesWithFares" />
       <module name="flink.taxi.stream" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.flink.state.*" />
+          <option name="PATTERN" value="com.flink.state.function.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -331,18 +370,18 @@
     </configuration>
     <list>
       <item itemvalue="Application.RidesWithFares" />
-      <item itemvalue="Application.StatefulAPI" />
       <item itemvalue="Application.TimeWindowWordCount" />
       <item itemvalue="Application.ValueCount" />
       <item itemvalue="Application.WindowWordCount" />
+      <item itemvalue="Application.CarEventSort" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.CarEventSort" />
         <item itemvalue="Application.WindowWordCount" />
         <item itemvalue="Application.ValueCount" />
         <item itemvalue="Application.TimeWindowWordCount" />
         <item itemvalue="Application.RidesWithFares" />
-        <item itemvalue="Application.StatefulAPI" />
       </list>
     </recent_temporary>
   </component>
@@ -363,7 +402,7 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22252011" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22252011" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -372,7 +411,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32991204" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.19501466" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.38856304" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -516,16 +555,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/flink/state/function/CountWindowAverageWithValueState.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="15" selection-start-line="15" selection-end-line="15" selection-end-column="15" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/flink/datatypes/EnrichedTaxiRide.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="28">
@@ -642,27 +671,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/flink/state/StatefulAPI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
-          <caret line="42" column="50" selection-start-line="42" selection-start-column="29" selection-end-line="42" selection-end-column="50" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/flink/util/GeoUtils.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1328">
           <caret line="74" column="50" selection-start-line="74" selection-start-column="34" selection-end-line="74" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/flink/window/timetest/WatermarkTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="85" column="19" selection-start-line="85" selection-start-column="19" selection-end-line="85" selection-end-column="19" />
         </state>
       </provider>
     </entry>
@@ -689,16 +701,6 @@
         <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/flink/window/KeyedProcessFunctionWordCount.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="502">
-          <caret line="140" column="27" lean-forward="true" selection-start-line="140" selection-start-column="27" selection-end-line="140" selection-end-column="27" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/flink/window/WindowWordCount.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="325">
@@ -719,10 +721,92 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/flink/window/timetest/WatermarkTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-124">
+          <caret line="57" column="47" selection-start-line="57" selection-start-column="43" selection-end-line="57" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/flink/datatypes/ConnectedCarEvent.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2650">
-          <caret line="124" column="42" lean-forward="true" selection-start-line="124" selection-start-column="42" selection-end-line="124" selection-end-column="42" />
+        <state relative-caret-position="115">
+          <caret line="62" column="28" selection-start-line="62" selection-start-column="16" selection-end-line="62" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1166#1167#0" expanded="true" />
+            <element signature="e#1198#1199#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/flink/window/KeyedProcessFunctionWordCount.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="157" column="25" selection-start-line="157" selection-start-column="25" selection-end-line="157" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/flink/flink-core/1.9.0/flink-core-1.9.0.jar!/org/apache/flink/api/common/state/ValueStateDescriptor.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="38" column="60" selection-start-line="38" selection-start-column="45" selection-end-line="38" selection-end-column="60" />
+          <folding>
+            <element signature="e#1284#1285#0" expanded="true" />
+            <element signature="e#1335#1336#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/flink/project/HourlyTips.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-50">
+          <caret line="25" column="42" selection-start-line="25" selection-start-column="42" selection-end-line="25" selection-end-column="42" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2122#2626#0" expanded="true" />
+            <element signature="e#2625#2626#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/flink/state/StatefulAPI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="22" column="61" selection-start-line="22" selection-start-column="29" selection-end-line="22" selection-end-column="61" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/flink/state/function/CountWindowAverageWithValueState.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="27" column="13" lean-forward="true" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/flink/project/ConnectedCarAssigner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="21" column="21" lean-forward="true" selection-start-line="21" selection-start-column="21" selection-end-line="21" selection-end-column="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/flink/project/function/EventSortFunction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1171">
+          <caret line="20" column="30" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -731,22 +815,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/flink/project/CarEventSort.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="15" column="41" selection-start-line="15" selection-start-column="41" selection-end-line="15" selection-end-column="41" />
+        <state relative-caret-position="215">
+          <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
           <folding>
             <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/flink/project/HourlyTips.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="25" column="42" selection-start-line="25" selection-start-column="42" selection-end-line="25" selection-end-column="42" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2122#2626#0" expanded="true" />
-            <element signature="e#2625#2626#0" expanded="true" />
           </folding>
         </state>
       </provider>
