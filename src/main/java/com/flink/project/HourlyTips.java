@@ -18,11 +18,12 @@ import org.apache.flink.util.Collector;
  * 需求：实时计算每隔一个小时赚钱最多的司机
  * 1. 计算出每个小时每个司机总共赚了多少钱
  * 2. 计算出赚钱最多的司机
+ * @author tang
  */
 public class HourlyTips implements DataFilePath {
     public static void main(String[] args) throws Exception {
         StreamExecutionEnvironment env = StreamExecutionEnvironment
-                .createLocalEnvironmentWithWebUI(new Configuration());
+                .getExecutionEnvironment();
 
         DataStream<Tuple2<Long, Float>> source = env.addSource(new GzpFileSource(TAXI_FARE_PATH))
                 .map(new MapFunction<String, Tuple2<Long, Float>>() {
