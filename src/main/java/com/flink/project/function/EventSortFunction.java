@@ -9,6 +9,7 @@ import org.apache.flink.configuration.Configuration;
 import org.apache.flink.streaming.api.TimerService;
 import org.apache.flink.streaming.api.functions.KeyedProcessFunction;
 import org.apache.flink.util.Collector;
+import org.apache.flink.util.OutputTag;
 
 import java.util.PriorityQueue;
 
@@ -20,6 +21,9 @@ import java.util.PriorityQueue;
  */
 public class EventSortFunction
         extends KeyedProcessFunction<String, ConnectedCarEvent, ConnectedCarEvent> {
+    public static final OutputTag<String> outputTag = new OutputTag<String>("late") {
+    };
+
     // 使用PriorityQueue进行排序
     private ValueState<PriorityQueue<ConnectedCarEvent>> queueValueState;
 
@@ -46,9 +50,9 @@ public class EventSortFunction
         long currentWatermark = timerService.currentWatermark();
 
         if (currentEventTime > currentWatermark) {
-            PriorityQueue<ConnectedCarEvent> queue=queueValueState.value();
-            if(queue==null){
-                queue=new PriorityQueue<ConnectedCarEvent>();
+            PriorityQueue<ConnectedCarEvent> queue = queueValueState.value();
+            if (queue == null) {
+                queue = new PriorityQueue<ConnectedCarEvent>();
             }
             // 将事件放到优先级队列中
             queue.add(element);
@@ -59,12 +63,13 @@ public class EventSortFunction
             timerService.registerEventTimeTimer(element.getTimestamp());
         } else {
             // 迟到事件
-
+            context.output(outputTag, element.getId());
         }
     }
 
     /**
      * 定时输出数据
+     *
      * @param timestamp
      * @param ctx
      * @param out
@@ -73,9 +78,9 @@ public class EventSortFunction
     @Override
     public void onTimer(long timestamp, OnTimerContext ctx,
                         Collector<ConnectedCarEvent> out) throws Exception {
-        PriorityQueue<ConnectedCarEvent> queue=queueValueState.value();
-        ConnectedCarEvent head=queue.peek();
-        long currentWatermark=ctx.timerService().currentWatermark();
+        PriorityQueue<ConnectedCarEvent> queue = queueValueState.value();
+        ConnectedCarEvent head = queue.peek();
+        long currentWatermark = ctx.timerService().currentWatermark();
         // 输出的条件：
         // 1. 队列不能为空
         // 2. 拿出来的事件的 event time 需要小于当前的 watermark

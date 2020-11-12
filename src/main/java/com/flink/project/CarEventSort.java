@@ -5,6 +5,7 @@ import com.flink.project.function.EventSortFunction;
 import org.apache.flink.configuration.Configuration;
 import org.apache.flink.streaming.api.TimeCharacteristic;
 import org.apache.flink.streaming.api.datastream.DataStream;
+import org.apache.flink.streaming.api.datastream.SingleOutputStreamOperator;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.rocksdb.Env;
 
@@ -20,6 +21,7 @@ public class CarEventSort {
         StreamExecutionEnvironment env = StreamExecutionEnvironment
                 .getExecutionEnvironment();
 
+        // env.setParallelism(1);
 
         env.setStreamTimeCharacteristic(TimeCharacteristic.EventTime);
 
@@ -29,7 +31,13 @@ public class CarEventSort {
                 .assignTimestampsAndWatermarks(new ConnectedCarAssigner());
 
         // 升序排序
-        carEnvent.keyBy(ConnectedCarEvent::getCarId).process(new EventSortFunction()).print();
+        SingleOutputStreamOperator<ConnectedCarEvent> sortedEvents= carEnvent
+                .keyBy(ConnectedCarEvent::getCarId)
+                .process(new EventSortFunction());
+
+        sortedEvents.getSideOutput(EventSortFunction.outputTag).print();
+
+        //sortedEvents.print();
 
         env.execute("CarEventSort");
     }
