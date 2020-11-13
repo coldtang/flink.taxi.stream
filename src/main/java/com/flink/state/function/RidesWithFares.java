@@ -4,8 +4,10 @@ import com.flink.DataFilePath;
 import com.flink.datatypes.TaxiFare;
 import com.flink.datatypes.TaxiRide;
 import com.flink.source.GzpFileSource;
+import org.apache.flink.api.common.restartstrategy.RestartStrategies;
 import org.apache.flink.api.common.state.ValueState;
 import org.apache.flink.api.common.state.ValueStateDescriptor;
+import org.apache.flink.api.common.time.Time;
 import org.apache.flink.api.java.tuple.Tuple2;
 import org.apache.flink.configuration.Configuration;
 import org.apache.flink.contrib.streaming.state.RocksDBStateBackend;
@@ -60,6 +62,23 @@ public class RidesWithFares implements DataFilePath {
         // 设置当 flink 程序取消的时候保留 checkpoint 数据
         checkpointConfig.enableExternalizedCheckpoints(
                 CheckpointConfig.ExternalizedCheckpointCleanup.RETAIN_ON_CANCELLATION);
+
+        // 设置 Flink 程序的自动重启策略
+        // 默认：fixed-delay restart strategy，重启的次数是 Integer.MAX_VALUE，重启之间的时间间隔是 10秒
+        // 1. fixed-delay restart strategy ：尝试重启多次，每次重启之间有一个时间间隔
+        env.setRestartStrategy(RestartStrategies.fixedDelayRestart(
+                5, // 重新启动总次数
+                Time.seconds(30) // 每次重新启动的时间间隔
+        ));
+        // 2. failure-rate restart strategy ：
+        // 尝试在一个时间段内重启执行次数，每次重启之间也需要一个时间间隔的
+        env.setRestartStrategy(RestartStrategies.failureRateRestart(
+                5, // 在指定时段重启的次数
+                Time.seconds(30), // 指定的时间段
+                Time.seconds(5) // 两次重启之间的时间间隔
+        ));
+        // 3. no-restart strategy：不进行重启，一旦发生错误立马停止程序
+        env.setRestartStrategy(RestartStrategies.noRestart());
 
         //读取 TaxiRide 数据
         KeyedStream<TaxiRide, Long> rides = env.addSource(new GzpFileSource(TAXI_RIDE_PATH))
