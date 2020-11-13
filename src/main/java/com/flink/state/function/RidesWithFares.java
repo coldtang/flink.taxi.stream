@@ -11,8 +11,10 @@ import org.apache.flink.configuration.Configuration;
 import org.apache.flink.contrib.streaming.state.RocksDBStateBackend;
 import org.apache.flink.runtime.state.filesystem.FsStateBackend;
 import org.apache.flink.runtime.state.memory.MemoryStateBackend;
+import org.apache.flink.streaming.api.CheckpointingMode;
 import org.apache.flink.streaming.api.datastream.DataStream;
 import org.apache.flink.streaming.api.datastream.KeyedStream;
+import org.apache.flink.streaming.api.environment.CheckpointConfig;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.apache.flink.streaming.api.functions.co.RichCoFlatMapFunction;
 import org.apache.flink.util.Collector;
@@ -36,6 +38,28 @@ public class RidesWithFares implements DataFilePath {
         RocksDBStateBackend rocksDBStateBackend = new RocksDBStateBackend("hdfs://master:9001/checkpoint-path/");
 
         env.setStateBackend(rocksDBStateBackend);
+
+        // 设置 checkpoint
+        // 开启 checkpoint 功能，checkpoint 的周期是 10 秒
+        env.enableCheckpointing(10000);
+        // 配置 checkpoint 行为特性
+        CheckpointConfig checkpointConfig = env.getCheckpointConfig();
+        // 设置语义
+        checkpointConfig.setCheckpointingMode(CheckpointingMode.AT_LEAST_ONCE);
+        // 设置两个 checkpoint 之间必须间隔一段时间
+        // 设置两个 checkpoint 之间最小间隔时间是 30 秒
+        checkpointConfig.setMinPauseBetweenCheckpoints(30000);
+        // 设置可以允许多个 checkpoint 一起运行，前提是 checkpoint 不占资源
+        checkpointConfig.setMaxConcurrentCheckpoints(3);
+        // 可以给 checkpoint 设置超时时间，如果达到了超时时间的话，Flink 会强制丢弃这一次 checkpoint
+        // 默认值是 10 分钟
+        checkpointConfig.setCheckpointTimeout(30000);
+        // 设置即使 checkpoint 出错了，继续让程序正常运行
+        // 1.9.0 不建议使用这个参数
+        checkpointConfig.setTolerableCheckpointFailureNumber(10);
+        // 设置当 flink 程序取消的时候保留 checkpoint 数据
+        checkpointConfig.enableExternalizedCheckpoints(
+                CheckpointConfig.ExternalizedCheckpointCleanup.RETAIN_ON_CANCELLATION);
 
         //读取 TaxiRide 数据
         KeyedStream<TaxiRide, Long> rides = env.addSource(new GzpFileSource(TAXI_RIDE_PATH))

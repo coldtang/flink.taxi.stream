@@ -20,7 +20,7 @@ import java.util.List;
  * @author tang
  */
 public class CustomSink implements SinkFunction<Tuple2<TaxiRide, TaxiFare>>, CheckpointedFunction {
-    /**
+     /**
      * 用于缓存结果数据的
      */
      private List<Tuple2<TaxiRide, TaxiFare>> bufferElements;
